@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ASS3</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <style>
+      .nav {
+        background-color: rgb(14, 225, 88);
+        padding: 0.5rem 1rem !important;
+        box-shadow:
+          0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
+          0 0 0 1px rgba(10, 10, 10, 0.02);
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation" >
+      <div class="navbar-brand" >
+        <a class="navbar-item" href="<%= isAdmin ? '/view/admin' : '/view' %>">
+         
+          <h1 style="font-size: x-large; font-weight: 700;">Assigment 3</h1>
+        </a>
+        
+        <a
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div id="navbarBasicExample" class="navbar-menu">
+        <% if (isAdmin) { %>
+        <div class="navbar-start">
+          <a class="navbar-item" href="/view/admin/categories">Categories</a>
+
+          <a class="navbar-item" href="/view/admin/orchids">Orchids</a>
+        </div>
+        <% } %>
+        <div class="navbar-end">
+          <% if (!isAdmin) { %>
+   
+
+          <% } %>
+          <div class="navbar-item">
+            <% if (isLogin) { %>
+            <div class="buttons">
+              <% if (!isAdmin) { %>
+                <a href="/view/account">
+                <span class="icon-text">
+                  <span class="icon">
+                    <i class="fa-solid fa-user"></i>
+                  </span>
+                  <span>My account</span>
+                </span>
+                </a>
+
+              
+              <% } %>
+              
+
+              <a id="logoutButton">
+                <span class="icon-text">
+                  <span class="icon">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                  </span>
+                  <span>Sign out</span>
+                </span>
+                </a>
+            </div>
+            <% } else { %>
+            <div class="buttons">
+              <a href="/view/signup">
+                <span class="icon-text">
+                  <span class="icon">
+                    <i class="fa-solid fa-user-plus"></i>
+                  </span>
+                  <span>Create new account</span>
+                </span>
+                </a>
+  
+                <a href="/view/login">
+                  <span class="icon-text">
+                    <span class="icon">
+                      <i class="fa-solid fa-right-to-bracket"></i>
+                    </span>
+                    <span>Login</span>
+                  </span>
+                  </a>
+            </div>
+            
+            
+           
+             
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </nav>
+   
+  </body>
+
+
+
+</html>
